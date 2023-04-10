@@ -6,8 +6,12 @@
   </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 import AuthApi from "../api/auth";
 export default {
+    computed: mapState({
+        token: state => state.token
+    }),
   data() {
     return {
       user: {
@@ -17,17 +21,24 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['commitSetToken']),
     login() {
       AuthApi.login(
         this.user,
         (data) => {
           console.log(data);
+
         },
         (error) => {
           console.error(error);
         }
       );
     },
-  },
+    }
+  watch: {
+        token(value) {
+            console.log(value)
+        }
+    },
 };
 </script>
