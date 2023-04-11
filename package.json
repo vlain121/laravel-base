@@ -11,7 +11,8 @@
     },
     "devDependencies": {
         "dotenv": "^9.0.1",
-        "eslint": "^7.25.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-vue": "^9.10.0",
         "jwt-decode": "^3.1.2",
         "resolve-url-loader": "^5.0.0",
         "vue-router": "^3.*",
@@ -20,6 +21,7 @@
     },
     "dependencies": {
         "axios": "^0.21.4",
+        "bootstrap": "^4.6.1",
         "bootstrap-vue": "^2.23.1",
         "cross-env": "^7.0.3",
         "laravel-mix": "^6.0.49",

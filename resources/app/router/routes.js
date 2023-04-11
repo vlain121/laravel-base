@@ -1,4 +1,5 @@
 const DashboardPage = () => import('../views/DashboardPage.vue')
+const LoginPage = () => import('../views/LoginPage.vue')
 export default [
     {
         path: '/',
@@ -6,7 +7,8 @@ export default [
         component: DashboardPage,
     },
     {
-        path: '*',
-        component: DashboardPage,
+        path: '/login',
+        name: 'LoginPage',
+        component: LoginPage,
     },
 ]

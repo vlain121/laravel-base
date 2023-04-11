@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    token: null
+    token: null,
   },
   mutations: {
     commitSetToken(state, data) {
