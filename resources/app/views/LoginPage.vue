@@ -3,19 +3,15 @@
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <b-form-input v-model="user.email" placeholder="Enter your email"></b-form-input>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+      <b-form-input type="password" v-model="user.password" placeholder="Enter your password"></b-form-input>
+      <b-button variant="primary" class="btn-block" @click="login">Sign in</b-button>
+      <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
 </form>
 </template>
 <script>
+import { mapActions } from 'vuex';
 import AuthApi from "../api/auth";
 export default {
   data() {
@@ -27,11 +23,13 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['setToken']),
     login() {
       AuthApi.login(
         this.user,
-        (data) => {
-          console.log(data);
+        (request) => {
+            this.setToken(request.data.token)
+            this.$router.push({path: '/'})
         },
         (error) => {
           console.error(error);
@@ -41,7 +39,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 html,
 body {
   height: 100%;
