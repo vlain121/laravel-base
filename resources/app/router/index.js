@@ -10,7 +10,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log(to, from)
     if (to.path !== '/login') {
         const authenticated = 'user' in store.state && 'id' in store.state.user ? store.state.user.id : null
         if (!authenticated) {
