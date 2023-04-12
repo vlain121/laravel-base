@@ -10,8 +10,8 @@
   </div>
 </template>
 <script>
-import HeaderLayout from "./HeaderLayout";
-import SidebarLayout from "./SidebarLayout";
+import HeaderLayout from "./HeaderLayout.vue";
+import SidebarLayout from "./SidebarLayout.vue";
 export default {
   components: {
     HeaderLayout,

@@ -25,4 +25,9 @@ class AuthController extends Controller
             'token' => $token
         ]);
     }
+
+    public function me(Request $request)
+    {
+        return $request->user();
+    }
 }

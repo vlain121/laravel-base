@@ -23,12 +23,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['setToken']),
+    ...mapActions(['setUser']),
     login() {
       AuthApi.login(
         this.user,
         (request) => {
-            this.setToken(request.data.token)
+            localStorage.setItem('access_token', request.data.token)
+            this.setUser(request.data.user)
             this.$router.push({path: '/'})
         },
         (error) => {

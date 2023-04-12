@@ -5,16 +5,16 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    token: null,
+    user: {}
   },
   mutations: {
-    commitSetToken(state, data) {
-      state.token = data
+    commitSetUser(state, data) {
+      state.user = data
     }
   },
   actions: {
-    setToken({ commit }, data) {
-      commit('commitSetToken', data)
+    setUser({ commit }, data) {
+      commit('commitSetUser', data)
     }
   }
 })

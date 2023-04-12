@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './routes'
 import store from '../store'
-
+import AuthApi from '../api/auth'
 Vue.use(Router)
 const router = new Router({
     mode: 'history',
@@ -10,14 +10,19 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    // if (to.path !== '/login') {
-    //     const token = 'token' in store.state ? store.state.token : null
-    //     if (!token) {
-    //         next({
-    //             path: '/login'
-    //         })
-    //     }
-    // }
+    console.log(to, from)
+    if (to.path !== '/login') {
+        const authenticated = 'user' in store.state && 'id' in store.state.user ? store.state.user.id : null
+        if (!authenticated) {
+            AuthApi.me((response) => {
+                store.dispatch('setUser', response.data)
+            }, (e) => {
+                next({
+                    path: '/login'
+                })
+            })
+        }
+    }
     next()
 });
 
