@@ -8,7 +8,9 @@ export default {
     return {};
   },
 
-  created() {},
-  mounted() {},
+  created() {
+  },
+  mounted() {
+  },
 };
 </script>

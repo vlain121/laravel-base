@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    setUser({ commit }, data) {
+    setUser({commit}, data) {
       commit('commitSetUser', data)
     }
   }

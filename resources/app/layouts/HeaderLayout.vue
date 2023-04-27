@@ -16,13 +16,14 @@
 </template>
 <script>
 import { mapActions } from 'vuex';
+
 export default {
-    methods: {
-        ...mapActions(['setToken']),
-        logout() {
-            this.setToken(null)
-            this.$router.push('login')
-        }
+  methods: {
+    ...mapActions(['setToken']),
+    logout() {
+      this.setToken(null)
+      this.$router.push('login')
     }
+  }
 };
 </script>

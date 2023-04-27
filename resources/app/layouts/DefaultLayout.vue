@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <sidebar-layout></sidebar-layout>
-        <slot />
+        <slot/>
       </div>
     </div>
   </div>
@@ -12,6 +12,7 @@
 <script>
 import HeaderLayout from "./HeaderLayout.vue";
 import SidebarLayout from "./SidebarLayout.vue";
+
 export default {
   components: {
     HeaderLayout,
